@@ -1,6 +1,6 @@
 {
   "name": "payload-paystack-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A payload cms plugin to sync paystack resources to payload resources",
   "license": "MIT",
   "type": "module",
