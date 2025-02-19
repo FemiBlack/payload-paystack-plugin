@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 
 import { devUser } from './helpers/credentials.js'
 import { testEmailAdapter } from './helpers/testEmailAdapter.js'
-import { seed } from './seed.js'
+// import { seed } from './seed.js'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -42,13 +42,18 @@ export default buildConfig({
   }),
   editor: lexicalEditor(),
   email: testEmailAdapter,
-  onInit: async (payload) => {
-    await seed(payload)
-  },
+  // onInit: async (payload) => {
+  //   await seed(payload)
+  // },
   plugins: [
     payloadPaystackPlugin({
-      collections: {
-        posts: true,
+      logs: true,
+      paystackSecretKey: process.env.PAYSTACK_SECRET_KEY || '',
+      paystackWebhooksEndpointSecret: process.env.PAYSTACK_WEBHOOKS_ENDPOINT_SECRET || '',
+      webhooks: {
+        'charge.success': ({ event, payload }) => {
+          payload.logger.info(event)
+        },
       },
     }),
   ],
