@@ -5,7 +5,7 @@ This plugin allows you to listen for Paystack webhooks ~~and sync your Paystack 
 ## Installation
 
 ```bash
-pnpm add paystack-plugin-paystack 
+pnpm add payload-paystack-plugin
 ```
 
 ## Configuration
@@ -13,7 +13,7 @@ pnpm add paystack-plugin-paystack
 Add the following to your `payload.config.ts` file:
 
 ```ts
-import { payloadPaystackPlugin } from 'paystack-plugin-paystack'
+import { payloadPaystackPlugin } from 'payload-paystack-plugin'
 
 export default payload({
   plugins: [
@@ -39,7 +39,7 @@ The plugin will automatically listen for webhooks from Paystack and handle them 
 For example, if you want to handle the `charge.success` event, you can add the following to your `payload.config.ts` file:
 
 ```ts
-import { payloadPaystackPlugin } from 'paystack-plugin-paystack'
+import { payloadPaystackPlugin } from 'payload-paystack-plugin'
 
 export default payload({
   plugins: [
