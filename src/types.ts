@@ -1,7 +1,9 @@
 import type { CollectionSlug, Payload, Config as PayloadConfig, PayloadRequest } from 'payload'
 import type { Paystack } from 'paystack-sdk'
 
-export type PaystackWebhookHandler<T extends object = object> = (args: {
+type PaystackEventData = { [x: string]: any } | { [x: string]: any }[]
+
+export type PaystackWebhookHandler<T extends PaystackEventData = any> = (args: {
   config: PayloadConfig
   event: PaystackEvent<T>
   payload: Payload
